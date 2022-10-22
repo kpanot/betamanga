@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "db8c3992-2910-4f36-bb37-4bf17af1b9cd",
+		"name": "BetaManga",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2470525"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "get profile",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/profiles/{{username}}",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"profiles",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my profile",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/profiles/me",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"profiles",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"if (!pm.variables.get(\"token\")) {",
+							"    throw new Error('Token not provided, please run \"[post] login\" request before');",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "get authors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"example-author-id\", jsonData[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/authors",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search author",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"example-author-id\", jsonData[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/authors/search?name=oda",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"authors",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "oda"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get author info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/authors/{{example-author-id}}",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"authors",
+								"{{example-author-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapters",
+			"item": [
+				{
+					"name": "get chapters for manga",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"example-chapter-id\", jsonData[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/chapters/for-manga/{{example-manga-id}}",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"chapters",
+								"for-manga",
+								"{{example-manga-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get chapter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/chapters/{{example-chapter-id}}",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"chapters",
+								"{{example-chapter-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manga",
+			"item": [
+				{
+					"name": "search manga",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"if (jsonData[0]) {\r",
+									"    postman.setEnvironmentVariable(\"example-manga-id\", jsonData[0]._id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/manga?name=one piece",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"manga"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "one piece"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get chapters for manga",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"if (jsonData[0]) {\r",
+									"    postman.setEnvironmentVariable(\"example-chapter-id\", jsonData[0]._id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/manga/{{example-manga-id}}/chapters",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"manga",
+								"{{example-manga-id}}",
+								"chapters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get volumes for manga",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"if (jsonData[0]) {\r",
+									"    postman.setEnvironmentVariable(\"example-chapter-id\", jsonData[0]._id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/manga/{{example-manga-id}}/volumes",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"manga",
+								"{{example-manga-id}}",
+								"volumes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get manga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/manga/{{example-manga-id}}",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"manga",
+								"{{example-manga-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get remaining chapters for manga",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"if (jsonData[0]) {\r",
+									"    postman.setEnvironmentVariable(\"example-chapter-id\", jsonData[0]._id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/manga/{{example-manga-id}}/chapters/not-read",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"manga",
+								"{{example-manga-id}}",
+								"chapters",
+								"not-read"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"{{username}}\", \"password\": \"{{password}}\"}"
+				},
+				"url": {
+					"raw": "{{backend-host}}/auth/login",
+					"host": [
+						"{{backend-host}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "backend-host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "kilian",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "test",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "example-author-id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "example-manga-id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "example-chapter-id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
