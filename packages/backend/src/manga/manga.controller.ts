@@ -41,6 +41,12 @@ export class MangaController {
     return chapters;
   }
 
+  @Get(':id/chapters/future')
+  public async getFutureChapters(@Param('id') id: string) {
+    const chapters = await this.mangaService.getFutureChapters(id);
+    return chapters;
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get(':id/chapters/not-read')
   public async getRemainingChapters(

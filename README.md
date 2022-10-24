@@ -18,5 +18,5 @@ yarn docker:dev:build
 Then you can run locally the application with:
 
 ```shell
-yarn docker:dev:build
+yarn docker:dev
 ```

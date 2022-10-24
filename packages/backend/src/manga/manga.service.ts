@@ -34,6 +34,21 @@ export class MangaService {
       .findById(id)
       .populate({
         path: 'chapters',
+        match: { releaseDate: { $lte: new Date() } },
+        options: { sort: [{ number: 'desc' }] },
+      })
+      .select(['chapters'])
+      .orFail(() => new NotFoundException())
+      .exec();
+    return manga.chapters;
+  }
+
+  public async getFutureChapters(id: string): Promise<Chapter[]> {
+    const manga = await this.mangaModel
+      .findById(id)
+      .populate({
+        path: 'chapters',
+        match: { releaseDate: { $gt: new Date() } },
         options: { sort: [{ number: 'desc' }] },
       })
       .select(['chapters'])
@@ -52,7 +67,7 @@ export class MangaService {
       .findById(id)
       .populate({
         path: 'chapters',
-        match: { _id: { $not: { $in: chapterIds } } },
+        match: { _id: { $nin: chapterIds }, releaseDate: { $lte: new Date() } },
         options: { sort: [{ number: 'desc' }] },
       })
       .select(['chapters'])

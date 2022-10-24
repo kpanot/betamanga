@@ -1,8 +1,10 @@
 import { Controller, Get, Param, Request, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { LoggedInRequest } from '../auth/auth.interfaces';
 import { JwtAuthGuard } from '../auth/jwt/jwt-auth.guard';
 import { ProfilesService } from './profiles.service';
 
+@ApiBearerAuth()
 @Controller('profiles')
 export class ProfilesController {
   constructor(private readonly profileService: ProfilesService) {}
