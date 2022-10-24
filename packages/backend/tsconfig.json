@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "composite": true,
     "preserveWatchOutput": true,
     "module": "CommonJS",
     "declaration": true,
@@ -18,5 +20,13 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    },
+    {
+      "path": "./tsconfig.seed.json"
+    }
+  ]
 }

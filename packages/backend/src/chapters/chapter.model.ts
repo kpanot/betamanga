@@ -31,7 +31,7 @@ export class Chapter {
   synopsis?: string;
 
   @Prop({ type: Date })
-  releaseDate?: Date;
+  releaseDate: Date;
 
   @Prop({ required: true, type: Date })
   _createdAt: Date;

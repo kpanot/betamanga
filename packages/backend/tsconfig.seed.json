@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["db/**/*.ts"],
+  "exclude": ["src/**/*.ts"],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./seed.tsbuildinfo",
+    "rootDir": "./db"
+  },
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
+}
