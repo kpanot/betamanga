@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
     "composite": true,
     "preserveWatchOutput": true,
     "module": "CommonJS",

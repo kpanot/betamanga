@@ -9,5 +9,9 @@
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "cSpell.words": [
     "nestjs"
-  ]
+  ],
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
+    "tsconfig.json": "tsconfig.*.json"
+  },
 }

@@ -40,7 +40,7 @@ services:
       context: .
       dockerfile: ./packages/web/Dockerfile.dev
     volumes:
-      - ./packages/web/src:/usr/src/packages/web/src
-      - ./packages/web/public:/usr/src/packages/web/public
+      - ./packages/sdk:/usr/src/packages/sdk
+      - ./packages/web:/usr/src/packages/web
     ports:
       - 80:80

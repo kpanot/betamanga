@@ -24,14 +24,22 @@ async function generateOpenApiDoc(app: INestApplication) {
     .setVersion(pck.version)
     .setContact(name, url || 'none', email || 'none')
     .addBearerAuth()
+    .addTag('auth', 'Authorization API')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config, {
+    operationIdFactory: (controllerKey, methodKey) =>
+      `${controllerKey.replace(/Controller$/, '')}_${methodKey}`,
+  });
 
   await fs.writeFile(openApiSpecificationFilePath, JSON.stringify(document));
 }
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    // TODO: be more restrictive
+    origin: '*',
+  });
   await generateOpenApiDoc(app);
   await app.listen(process.env.PORT || 3000);
 }
