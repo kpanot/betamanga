@@ -11,8 +11,10 @@ COPY .yarn/releases .yarn/releases
 COPY .yarn/cache .yarn/cache
 
 COPY packages/web packages/web
+COPY packages/sdk packages/sdk
 
 RUN yarn
+RUN yarn workspace @betamanga/sdk build
 RUN yarn workspace @betamanga/web build
 
 FROM nginx:alpine

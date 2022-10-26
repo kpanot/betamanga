@@ -11,6 +11,7 @@ COPY .yarn/releases .yarn/releases
 COPY .yarn/cache .yarn/cache
 
 COPY packages/web packages/web
+COPY packages/sdk packages/sdk
 
 RUN yarn
 
