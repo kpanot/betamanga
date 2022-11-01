@@ -1,0 +1,19 @@
+FROM node:latest
+RUN apt-get update
+RUN apt-get -y install default-jre
+
+WORKDIR /usr/src
+
+# Context is the project's root
+COPY package.json .
+COPY yarn.lock .
+COPY .pnp* .
+COPY .yarnrc.yml .
+COPY .yarn/releases .yarn/releases
+COPY .yarn/cache .yarn/cache
+
+COPY packages/sdk packages/sdk
+
+RUN yarn
+
+CMD ["yarn", "workspace", "@betamanga/sdk", "start:local-regen", " --host=host.docker.internal"]

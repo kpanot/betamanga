@@ -35,6 +35,13 @@ services:
       - 3000:3000
       - 9229:9229
 
+  # sdk:
+  #   build:
+  #     context: .
+  #     dockerfile: ./packages/sdk/Dockerfile.dev
+  #   volumes:
+  #     - ./packages/sdk:/usr/src/packages/sdk
+
   web:
     build:
       context: .
