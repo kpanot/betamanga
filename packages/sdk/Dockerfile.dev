@@ -16,4 +16,4 @@ COPY packages/sdk packages/sdk
 
 RUN yarn
 
-CMD ["yarn", "workspace", "@betamanga/sdk", "start:local-regen", " --host=host.docker.internal"]
+CMD ["yarn", "workspace", "@betamanga/sdk", "start:local", " --uri=http://host.docker.internal/api"]

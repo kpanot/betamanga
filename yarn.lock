@@ -557,6 +557,7 @@ __metadata:
     "@openapitools/openapi-generator-cli": ^2.5.2
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
+    api-change-run: ^0.0.1
     eslint: ^8.0.1
     eslint-config-prettier: ^8.3.0
     eslint-config-standard-with-typescript: latest
@@ -2656,6 +2657,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"api-change-run@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "api-change-run@npm:0.0.1"
+  dependencies:
+    commander: ^9.4.1
+    loglevel: ^1.8.0
+    node-fetch: ^3.2.10
+    rxjs: ^7.5.7
+  bin:
+    api-change-poll: dist/poll-url-change.cli.mjs
+  checksum: 10d1bafb33bb7534be25e989d9127c939120ffd984b68c7434bbbcef31f10e99aa5eb81a3a71f8bf468a1382072a7601bc3465e8284cf46ed3f8854e8fe69ea7
+  languageName: node
+  linkType: hard
+
 "append-field@npm:^1.0.0":
   version: 1.0.0
   resolution: "append-field@npm:1.0.0"
@@ -3480,7 +3495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^9.3.0":
+"commander@npm:^9.3.0, commander@npm:^9.4.1":
   version: 9.4.1
   resolution: "commander@npm:9.4.1"
   checksum: bfb18e325a5bdf772763c2213d5c7d9e77144d944124e988bcd8e5e65fb6d45d5d4e86b09155d0f2556c9a59c31e428720e57968bcd050b2306e910a0bf3cf13
@@ -7172,6 +7187,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loglevel@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "loglevel@npm:1.8.0"
+  checksum: 41aeea17de24aba8dba68084a31fe9189648bce4f39c1277e021bb276c3c53a75b0d337395919cf271068ad40ecefabad0e4fdeb4a8f11908beee532b898f4a7
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^5.1.1":
   version: 5.1.1
   resolution: "lru-cache@npm:5.1.1"
@@ -9055,7 +9077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.2.0, rxjs@npm:^7.5.5":
+"rxjs@npm:^7.2.0, rxjs@npm:^7.5.5, rxjs@npm:^7.5.7":
   version: 7.5.7
   resolution: "rxjs@npm:7.5.7"
   dependencies:
