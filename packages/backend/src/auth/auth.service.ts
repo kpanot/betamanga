@@ -4,6 +4,7 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserDocument } from '../users/user.model';
 import { JwtPayload } from './auth.interfaces';
+import { jwtConstants } from './auth.constants';
 
 @Injectable()
 export class AuthService {
@@ -29,6 +30,8 @@ export class AuthService {
     const payload: JwtPayload = { username: user.name, sub: user._id };
     return {
       access_token: this.jwtService.sign(payload),
+      token_type: 'Bearer',
+      expires_in: jwtConstants.expiresIn,
     };
   }
 }

@@ -31,6 +31,7 @@ services:
     environment:
       PORT: 3000
       MONGODB_URL: mongodb://root:example@mongo:27017/
+      JWT_SECRET: secretKey
     ports:
       - 3000:3000
       - 9229:9229
