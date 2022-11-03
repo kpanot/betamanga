@@ -1,4 +1,4 @@
-import { Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Req, Request, UseGuards } from '@nestjs/common';
 import {
   ApiBody,
   ApiOperation,
@@ -7,8 +7,13 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { UserDocument } from '../users/user.model';
-import { JwtTokenResponse, PostBasicAuthParameter } from './auth.interfaces';
+import {
+  JwtTokenResponse,
+  LoggedInRequest,
+  PostBasicAuthParameter,
+} from './auth.interfaces';
 import { AuthService } from './auth.service';
+import { JwtAuthRefreshTokenGuard } from './jwt/jwt-refresh-auth.guard';
 import { LocalAuthGuard } from './local/local-auth.guard';
 
 @ApiTags('auth')
@@ -32,5 +37,12 @@ export class AuthController {
   @Post('login')
   public async login(@Request() req: { user: UserDocument }) {
     return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthRefreshTokenGuard)
+  @Get('refresh')
+  public async refreshTokens(@Req() req: LoggedInRequest) {
+    const { refreshToken } = req.user;
+    return this.authService.refreshTokens(req.user, refreshToken);
   }
 }

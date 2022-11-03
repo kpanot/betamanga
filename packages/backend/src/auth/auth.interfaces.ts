@@ -8,6 +8,7 @@ export interface JwtPayload {
 export interface LoggedInUser {
   userId: string;
   username: string;
+  refreshToken?: string;
 }
 
 export interface LoggedInRequest {

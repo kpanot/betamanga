@@ -23,6 +23,9 @@ export class User {
   })
   profile: Profile;
 
+  @Prop()
+  refreshToken?: string;
+
   @Prop({ required: true, type: Date })
   _createdAt: Date;
 
