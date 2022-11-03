@@ -101,4 +101,8 @@ export class AuthService {
       ),
     };
   }
+
+  public async logout(userLoggedIn: LoggedInUser) {
+    return this.usersService.cleanRefreshToken(userLoggedIn.userId);
+  }
 }

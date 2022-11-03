@@ -1,5 +1,14 @@
-import { Controller, Get, Post, Req, Request, UseGuards } from '@nestjs/common';
 import {
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  Req,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
+import {
+  ApiBearerAuth,
   ApiBody,
   ApiOperation,
   ApiResponse,
@@ -13,6 +22,7 @@ import {
   PostBasicAuthParameter,
 } from './auth.interfaces';
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from './jwt/jwt-auth.guard';
 import { JwtAuthRefreshTokenGuard } from './jwt/jwt-refresh-auth.guard';
 import { LocalAuthGuard } from './local/local-auth.guard';
 
@@ -39,6 +49,33 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
+  @ApiOperation({
+    summary: 'Logout user',
+    description: 'Logout user and revoke refresh token',
+  })
+  @ApiResponse({
+    status: 204,
+    description: 'Successfully logout',
+  })
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @Get('logout')
+  @HttpCode(204)
+  public async logout(@Req() req: LoggedInRequest) {
+    await this.authService.logout(req.user);
+  }
+
+  @ApiOperation({
+    summary: 'Renew Bearer token',
+    description: 'Use refresh token to renew bearer token',
+  })
+  @ApiResponse({
+    type: JwtTokenResponse,
+    status: 200,
+    description: 'Bearer Token',
+  })
+  @ApiBearerAuth('jwt-refresh')
+  @ApiUnauthorizedResponse({ description: 'Fail to identify the user' })
   @UseGuards(JwtAuthRefreshTokenGuard)
   @Get('refresh')
   public async refreshTokens(@Req() req: LoggedInRequest) {
