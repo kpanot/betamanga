@@ -22,6 +22,12 @@ export class UsersService {
       .exec();
   }
 
+  public async cleanRefreshToken(userId: string) {
+    await this.userModel
+      .findByIdAndUpdate(userId, { $set: { refreshToken: null } })
+      .exec();
+  }
+
   public async getUser(userId: string) {
     const user = await this.userModel.findById(userId).orFail().exec();
 
