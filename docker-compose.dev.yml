@@ -32,6 +32,9 @@ services:
       PORT: 3000
       MONGODB_URL: mongodb://root:example@mongo:27017/
       JWT_SECRET: secretKey
+      JWT_REFRESH_SECRET: secretKey
+      TOKEN_EXPIRES_IN: 1h
+      REFRESH_EXPIRES_IN: 30d
     ports:
       - 3000:3000
       - 9229:9229

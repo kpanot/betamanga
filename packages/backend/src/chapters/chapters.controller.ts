@@ -7,7 +7,6 @@ export class ChaptersController {
 
   @Get(':id')
   public async getChapter(@Param('id') id: string) {
-    console.error(id);
     const chapter = await this.chaptersService.getById(id);
     return chapter;
   }

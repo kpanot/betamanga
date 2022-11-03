@@ -15,6 +15,19 @@ export class UsersService {
     return this.userModel.findOne({ name: userName }).exec();
   }
 
+  public async updateRefreshToken(userId: string, refreshToken: string) {
+    await this.userModel
+      .findByIdAndUpdate(userId, { $set: { refreshToken } })
+      .orFail()
+      .exec();
+  }
+
+  public async getUser(userId: string) {
+    const user = await this.userModel.findById(userId).orFail().exec();
+
+    return user;
+  }
+
   public async getUserWithProfile(userId: string) {
     const user = await this.userModel
       .findById(userId)

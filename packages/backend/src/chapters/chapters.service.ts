@@ -33,7 +33,6 @@ export class ChaptersService {
       .sort({ number: 'desc' })
       .orFail(() => new NotFoundException())
       .exec();
-    console.log(chapters);
     return chapters;
   }
 }
