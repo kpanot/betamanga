@@ -69,4 +69,67 @@ export class AuthApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Logout user and revoke refresh token
+     * Logout user
+     */
+    async authLogoutRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/auth/logout`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Logout user and revoke refresh token
+     * Logout user
+     */
+    async authLogout(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.authLogoutRaw(initOverrides);
+    }
+
+    /**
+     * Use refresh token to renew bearer token
+     * Renew Bearer token
+     */
+    async authRefreshTokensRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JwtTokenResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/auth/refresh`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => JwtTokenResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Use refresh token to renew bearer token
+     * Renew Bearer token
+     */
+    async authRefreshTokens(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JwtTokenResponse> {
+        const response = await this.authRefreshTokensRaw(initOverrides);
+        return await response.value();
+    }
+
 }
