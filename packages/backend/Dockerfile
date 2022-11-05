@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:lts-alpine as build
 
 WORKDIR /backend
 
@@ -16,7 +16,7 @@ RUN yarn
 RUN yarn workspace @betamanga/backend build
 
 
-FROM node:16-alpine
+FROM node:lts-alpine
 
 WORKDIR /usr/src
 

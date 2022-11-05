@@ -22,7 +22,8 @@
     "build:module": "tsc",
     "build:cjs": "tsc -b tsconfig.cjs.json",
     "generate": "openapi-generator-cli generate -g typescript-fetch -o ./src",
-    "start:local": "api-change-poll --script --uri http://localhost:3000/api generate:local:build",
+    "start": "api-change-poll --script generate:local:build",
+    "start:local": "yarn start --uri=http://localhost:3000/api",
     "generate:local": "yarn generate -i http://localhost:3000/api",
     "generate:local:build": "yarn generate:local && yarn build"
   },
@@ -30,7 +31,7 @@
     "@openapitools/openapi-generator-cli": "^2.5.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "api-change-run": "^0.0.1",
+    "api-change-run": "^0.1.2",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard-with-typescript": "latest",

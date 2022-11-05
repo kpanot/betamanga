@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:lts
 RUN apt-get update
 RUN apt-get -y install default-jre
 
@@ -16,4 +16,4 @@ COPY packages/sdk packages/sdk
 
 RUN yarn
 
-CMD ["yarn", "workspace", "@betamanga/sdk", "start:local", " --uri=http://host.docker.internal/api"]
+CMD ["yarn", "workspace", "@betamanga/sdk", "start", "--uri=http://host.docker.internal/api"]

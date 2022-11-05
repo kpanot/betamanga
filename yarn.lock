@@ -493,7 +493,7 @@ __metadata:
     "@types/bcryptjs": ^2.4.2
     "@types/express": ^4.17.13
     "@types/jest": 28.1.8
-    "@types/node": ^16.0.0
+    "@types/node": ^18.0.0
     "@types/passport-jwt": ^3.0.7
     "@types/passport-local": ^1.0.34
     "@types/supertest": ^2.0.11
@@ -558,7 +558,7 @@ __metadata:
     "@openapitools/openapi-generator-cli": ^2.5.2
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
-    api-change-run: ^0.0.1
+    api-change-run: ^0.1.2
     eslint: ^8.0.1
     eslint-config-prettier: ^8.3.0
     eslint-config-standard-with-typescript: latest
@@ -583,7 +583,7 @@ __metadata:
     "@betamanga/sdk": "workspace:^"
     "@sveltejs/vite-plugin-svelte": ^1.0.2
     "@tsconfig/svelte": ^3.0.0
-    "@types/node": ^16.0.0
+    "@types/node": ^18.0.0
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
     eslint: ^8.0.1
@@ -1996,10 +1996,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.0.0":
-  version: 16.11.64
-  resolution: "@types/node@npm:16.11.64"
-  checksum: 3634477efbeb586f8cdc1baf7670d8ea89c1eba1beac0354fa9123ca193d794da84ec40d4f8a54f694587ba5469e4124ebbba37542ed88eca95a3980ec45551a
+"@types/node@npm:^18.0.0":
+  version: 18.11.9
+  resolution: "@types/node@npm:18.11.9"
+  checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
   languageName: node
   linkType: hard
 
@@ -2674,9 +2674,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"api-change-run@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "api-change-run@npm:0.0.1"
+"api-change-run@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "api-change-run@npm:0.1.2"
   dependencies:
     commander: ^9.4.1
     loglevel: ^1.8.0
@@ -2684,7 +2684,7 @@ __metadata:
     rxjs: ^7.5.7
   bin:
     api-change-poll: dist/poll-url-change.cli.mjs
-  checksum: 10d1bafb33bb7534be25e989d9127c939120ffd984b68c7434bbbcef31f10e99aa5eb81a3a71f8bf468a1382072a7601bc3465e8284cf46ed3f8854e8fe69ea7
+  checksum: f4182dc6a1f16b7019d72bc25faf0781eaf491f1e3802f6e8b8d4364aec5c6badf41e6bf189e99d3127850ac8a98cd908bdf7b692c1e2ee27d24774ed446a1c1
   languageName: node
   linkType: hard
 
