@@ -558,7 +558,7 @@ __metadata:
     "@openapitools/openapi-generator-cli": ^2.5.2
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
-    api-change-run: ^0.1.2
+    api-change-run: ^0.3.0
     eslint: ^8.0.1
     eslint-config-prettier: ^8.3.0
     eslint-config-standard-with-typescript: latest
@@ -2674,9 +2674,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"api-change-run@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "api-change-run@npm:0.1.2"
+"api-change-run@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "api-change-run@npm:0.3.0"
   dependencies:
     commander: ^9.4.1
     loglevel: ^1.8.0
@@ -2684,7 +2684,7 @@ __metadata:
     rxjs: ^7.5.7
   bin:
     api-change-poll: dist/poll-url-change.cli.mjs
-  checksum: f4182dc6a1f16b7019d72bc25faf0781eaf491f1e3802f6e8b8d4364aec5c6badf41e6bf189e99d3127850ac8a98cd908bdf7b692c1e2ee27d24774ed446a1c1
+  checksum: 035de5311bc0fe6df5594ea6e4c8cb5c0291956325dbda9f8b80ad5021e874ec94ab40435db0e0336bcc22f7c02c0354c1f666b013e2f760e9971e67850ea538
   languageName: node
   linkType: hard
 
