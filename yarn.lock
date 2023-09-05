@@ -576,7 +576,7 @@ __metadata:
     "@openapitools/openapi-generator-cli": ~2.7.0
     "@typescript-eslint/eslint-plugin": ~6.5.0
     "@typescript-eslint/parser": ~6.5.0
-    api-change-run: ~1.2.5
+    api-change-run: ~1.3.0
     eslint: ~8.48.0
     eslint-config-prettier: ~9.0.0
     eslint-config-standard-with-typescript: ~39.0.0
@@ -2924,18 +2924,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"api-change-run@npm:~1.2.5":
-  version: 1.2.5
-  resolution: "api-change-run@npm:1.2.5"
+"api-change-run@npm:~1.3.0":
+  version: 1.3.2
+  resolution: "api-change-run@npm:1.3.2"
   dependencies:
-    commander: ^9.4.1
-    loglevel: ^1.8.0
-    node-fetch: ^3.2.10
-    rxjs: ^7.5.7
+    commander: ^11.0.0
+    loglevel: ^1.8.1
+    node-fetch: ^3.3.2
+    rxjs: ^7.8.1
   bin:
     api-change-poll: dist/poll-url-change.cli.mjs
     api-change-run: dist/poll-url-change.cli.mjs
-  checksum: 7d8dd4eb22aa7917a5df3a9ee06b8c2c44edfa9349d886f03b128c8249946130204202f2b786028a35f1525e3a6c129b8e3e624729b7aeb6865f8912099f8042
+  checksum: 7a9f690dc4817e9482cda5bc5ad5e089a0da207fa0204c9eb1c95b5f5303c90afa62bd4757eb8fa416313163c14854a3cabd5e18502929acca821366d59c5e47
   languageName: node
   linkType: hard
 
@@ -3872,7 +3872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:11.0.0":
+"commander@npm:11.0.0, commander@npm:^11.0.0":
   version: 11.0.0
   resolution: "commander@npm:11.0.0"
   checksum: 6621954e1e1d078b4991c1f5bbd9439ad37aa7768d6ab4842de1dbd4d222c8a27e1b8e62108b3a92988614af45031d5bb2a2aaa92951f4d0c934d1a1ac564bb4
@@ -3904,13 +3904,6 @@ __metadata:
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
-  languageName: node
-  linkType: hard
-
-"commander@npm:^9.4.1":
-  version: 9.4.1
-  resolution: "commander@npm:9.4.1"
-  checksum: bfb18e325a5bdf772763c2213d5c7d9e77144d944124e988bcd8e5e65fb6d45d5d4e86b09155d0f2556c9a59c31e428720e57968bcd050b2306e910a0bf3cf13
   languageName: node
   linkType: hard
 
@@ -7794,10 +7787,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loglevel@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "loglevel@npm:1.8.0"
-  checksum: 41aeea17de24aba8dba68084a31fe9189648bce4f39c1277e021bb276c3c53a75b0d337395919cf271068ad40ecefabad0e4fdeb4a8f11908beee532b898f4a7
+"loglevel@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "loglevel@npm:1.8.1"
+  checksum: a1a62db40291aaeaef2f612334c49e531bff71cc1d01a2acab689ab80d59e092f852ab164a5aedc1a752fdc46b7b162cb097d8a9eb2cf0b299511106c29af61d
   languageName: node
   linkType: hard
 
@@ -8470,7 +8463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.2.10, node-fetch@npm:~3.3.2":
+"node-fetch@npm:^3.3.2, node-fetch@npm:~3.3.2":
   version: 3.3.2
   resolution: "node-fetch@npm:3.3.2"
   dependencies:
@@ -9833,7 +9826,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:^7.5.5, rxjs@npm:^7.5.7, rxjs@npm:~7.8.1":
+"rxjs@npm:7.8.1, rxjs@npm:^7.5.5, rxjs@npm:^7.8.1, rxjs@npm:~7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
