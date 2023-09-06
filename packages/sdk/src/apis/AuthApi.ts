@@ -1,4 +1,3 @@
-/* tslint:disable */
 /* eslint-disable */
 /**
  * @betamanga/backend
@@ -30,7 +29,7 @@ export interface AuthLoginRequest {
 }
 
 /**
- * 
+ *
  */
 export class AuthApi extends runtime.BaseAPI {
 

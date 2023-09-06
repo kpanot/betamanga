@@ -5,7 +5,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 export default defineConfig({
   server: {
     watch: {
-      usePolling: true,
+      // usePolling: true,
     },
   },
   plugins: [svelte()],

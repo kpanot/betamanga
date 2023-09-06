@@ -6,6 +6,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
 
   mongo-express:
     image: mongo-express
@@ -46,12 +48,14 @@ services:
   #   volumes:
   #     - ./packages/sdk:/usr/src/packages/sdk
 
-  web:
-    build:
-      context: .
-      dockerfile: ./packages/web/Dockerfile.dev
-    volumes:
-      - ./packages/sdk:/usr/src/packages/sdk
-      - ./packages/web:/usr/src/packages/web
-    ports:
-      - 80:80
+  # web:
+  #   # depends_on:
+  #   #   - sdk
+  #   build:
+  #     context: .
+  #     dockerfile: ./packages/web/Dockerfile.dev
+  #   volumes:
+  #     - ./packages/sdk:/usr/src/packages/sdk
+  #     - ./packages/web:/usr/src/packages/web
+  #   ports:
+  #     - 80:80

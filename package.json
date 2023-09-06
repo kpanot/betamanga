@@ -13,6 +13,10 @@
   "scripts": {
     "docker:dev:build": "docker-compose -f ./docker-compose.dev.yml build",
     "docker:dev": "docker-compose -f ./docker-compose.dev.yml up",
+    "start:backend": "yarn docker:dev",
+    "start:sdk": "yarn workspace @betamanga/sdk start:local",
+    "start:web": "yarn workspace @betamanga/web start",
+    "start": "yarn docker:dev:build && yarn run-p 'start:*'",
     "postinstall": "husky install & yarn dlx @yarnpkg/sdks vscode"
   },
   "lint-staged": {
@@ -34,6 +38,7 @@
     "eslint-plugin-promise": "~6.1.1",
     "husky": "~8.0.3",
     "lint-staged": "~14.0.1",
+    "npm-run-all": "~4.1.5",
     "prettier": "~3.0.3",
     "typescript": "~5.2.2"
   },

@@ -1,4 +1,3 @@
-/* tslint:disable */
 /* eslint-disable */
 /**
  * @betamanga/backend
@@ -56,7 +55,7 @@ export interface ProfilesGetProfileRequest {
 }
 
 /**
- * 
+ *
  */
 export class DefaultApi extends runtime.BaseAPI {
 
