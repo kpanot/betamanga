@@ -1,3 +1,4 @@
+/* tslint:disable */
 /* eslint-disable */
 /**
  * @betamanga/backend
@@ -13,6 +14,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  Schema,
+} from '../models';
+import {
+    SchemaFromJSON,
+    SchemaToJSON,
+} from '../models';
 
 export interface AuthorsGetAuthorRequest {
     id: string;
@@ -55,13 +63,15 @@ export interface ProfilesGetProfileRequest {
 }
 
 /**
- *
+ * 
  */
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
+     * Retrieve the OpenApi 3.0 Specification
+     * 
      */
-    async appGetApiSpecificationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async appGetApiSpecificationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schema>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -73,13 +83,16 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchemaFromJSON(jsonValue));
     }
 
     /**
+     * Retrieve the OpenApi 3.0 Specification
+     * 
      */
-    async appGetApiSpecification(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.appGetApiSpecificationRaw(initOverrides);
+    async appGetApiSpecification(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Schema> {
+        const response = await this.appGetApiSpecificationRaw(initOverrides);
+        return await response.value();
     }
 
     /**

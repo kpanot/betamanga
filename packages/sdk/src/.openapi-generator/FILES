@@ -2,7 +2,16 @@ apis/AuthApi.ts
 apis/DefaultApi.ts
 apis/index.ts
 index.ts
+models/Components.ts
+models/Contact.ts
+models/ExternalDocumentation.ts
+models/Info.ts
 models/JwtTokenResponse.ts
+models/License.ts
 models/PostBasicAuthParameter.ts
+models/Schema.ts
+models/Server.ts
+models/ServerVariable.ts
+models/Tag.ts
 models/index.ts
 runtime.ts

@@ -13,7 +13,7 @@ export class AppController {
 
   @Get('api')
   @ApiOperation({
-    description: 'Retrieve the full API in Open Api 3.0 format',
+    description: 'Retrieve the OpenApi 3.0 Specification',
   })
   @ApiOkResponse({
     status: 200,
