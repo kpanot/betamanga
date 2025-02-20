@@ -2265,13 +2265,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-local@npm:~1.0.35":
-  version: 1.0.35
-  resolution: "@types/passport-local@npm:1.0.35"
+  version: 1.0.38
+  resolution: "@types/passport-local@npm:1.0.38"
   dependencies:
     "@types/express": "*"
     "@types/passport": "*"
     "@types/passport-strategy": "*"
-  checksum: b4ed4c40d2c7c42370c8a0ca7e18728bf3dbf2a56171d45c4f4d0281af9d91595ef9677a4f47ef10fdd5374a917b0ea64fb02d44ff4c424e48965e92915da294
+  checksum: d33395669960d47644b7c094c3ef59bba84e7aa4ee9bc820570027b922c1b7ff9b3f45ac8c11226f6861d2ef795c34b9498ab6f8e29693b51dafb64edd8b9879
   languageName: node
   linkType: hard
 
