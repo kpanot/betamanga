@@ -2254,13 +2254,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-jwt@npm:~3.0.9":
-  version: 3.0.9
-  resolution: "@types/passport-jwt@npm:3.0.9"
+  version: 3.0.13
+  resolution: "@types/passport-jwt@npm:3.0.13"
   dependencies:
     "@types/express": "*"
     "@types/jsonwebtoken": "*"
     "@types/passport-strategy": "*"
-  checksum: 9db11d4a6cd6b652fc98bfc98463d3d0e349edafb04447178536d0c1a53ecec999be1ae07773e80d40458b6e753ebe5f54130d584ae4e29ccb83a792dc88c075
+  checksum: 89e206659f38fd520c0d72561606ef1860dc23e59d401bcb429052001ef069a713b1a745ec1208273454e52336a175fb6692dcd3422ecebb552a21cf4b03dc56
   languageName: node
   linkType: hard
 
