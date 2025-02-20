@@ -2054,9 +2054,9 @@ __metadata:
   linkType: hard
 
 "@types/bcryptjs@npm:~2.4.3":
-  version: 2.4.3
-  resolution: "@types/bcryptjs@npm:2.4.3"
-  checksum: bf1b0a468a186b43a142ea75f26e52e6ecf1c4240404d9ef7973de2ef0b8d0072ebc0f8d3c84f45fa4bf2570f0770e58f565a9184eb9af3be436dbd4ca4881aa
+  version: 2.4.6
+  resolution: "@types/bcryptjs@npm:2.4.6"
+  checksum: 25ae1fd1e8a9bd688e22a8de905581d6d7bf26e823b797f895d2c488100b1f15d3c12a7d1a94f553087b010d316bf3978106df860e8e58fd13f52b4c708df5fd
   languageName: node
   linkType: hard
 
